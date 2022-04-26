@@ -1,18 +1,5 @@
 import React, { createContext, useState } from "react"
-
 export const ContextData = createContext()
-
-// export const MainData = (props) => {
-//   const MainGalleryData = [
-
-//   ]
-//   const [data, setData] = useState(MainGalleryData)
-//   return (
-//     <ContextData.Provider value={[data, setData]}>
-//       {props.children}
-//     </ContextData.Provider>
-//   )
-// }
 
 export const ArticleData = (props) => {
   let articleData = [
@@ -723,8 +710,7 @@ export const ArticleData = (props) => {
     {
       src: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202204/Palm_oil_price_India_1200x768.jpeg?p39KetDgUZqOMT10GiGNOUCdKdgCZVAW&size=770:433",
       alt: "poster",
-      title:
-        "Palm oil price to go up? Impact of export ban by Indonesia in India",
+      title: "Palm oil price to go up? Impact of export ban.",
       details:
         "Indonesia is not only the world's largest producer of palm oil but also meets nearly 50 per cent of the total palm oil requirement in India annually.",
       info: "Food / April 25 2022",

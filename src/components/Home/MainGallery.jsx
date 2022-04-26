@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
-import { ArticleData, ContextData } from "../Context/ContextData"
+import { ContextData } from "../Context/ContextData"
 import SideArticle from "./SideArticle"
 
 const MainGallery = () => {
@@ -23,35 +23,25 @@ const MainGallery = () => {
   //   }, [])
   return (
     <div className="container">
-      {dataContext.map((item) => {
-        return item.id === 26 ? (
-          <div className="mainArticle1" key={Math.random()}>
-            <Link to={`/article/${item.id}`} className="link">
-              <img src={item.src} alt={item.alt} />
-            </Link>
-            <div className="mainArticle1Text">
+      {dataContext
+        .filter((item) => item.id === 26)
+        .map((item) => {
+          return (
+            <div className="mainArticle1" key={Math.random()}>
               <Link to={`/article/${item.id}`} className="link">
-                <h2>{item.title}</h2>
+                <img src={item.src} alt={item.alt} />
               </Link>
-              {/* <h2>{item.title}</h2> */}
-              <small>{item.info}</small>
+              <div className="mainArticle1Text">
+                <Link to={`/article/${item.id}`} className="link">
+                  <h2>{item.title}</h2>
+                </Link>
+                <small>{item.info}</small>
+              </div>
             </div>
-          </div>
-        ) : null
-      })}
-      {/* <div className="mainArticle1">
-        <img
-          src="https://images.unsplash.com/photo-1468901184895-0cec1ee34ff5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-          alt="valley"
-        />
-        <div className="mainArticle1Text">
-          <h2>Title of vertical gallery</h2>
-          <small>Travel / April 22 2022</small>
-        </div>
-      </div> */}
-      <ArticleData>
-        <SideArticle />
-      </ArticleData>
+          )
+        })}
+
+      <SideArticle />
     </div>
   )
 }

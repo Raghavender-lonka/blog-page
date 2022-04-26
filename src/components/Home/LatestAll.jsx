@@ -26,7 +26,7 @@ export default function LatestAll() {
                   <h2>{item.title}</h2>
                 </Link>
                 <p>{item.details}</p>
-                <br />
+                {/* <br /> */}
                 <p>{item.info}</p>
               </div>
             </div>

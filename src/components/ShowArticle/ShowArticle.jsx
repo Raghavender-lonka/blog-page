@@ -1,86 +1,51 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { ContextData } from "../Context/ContextData"
 import "./showArticle.css"
 import AuthorImage from "../../assests/author.png"
 import Clap from "../../assests/clap.svg"
-import { Link, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import {
-  FacebookShareButton,
+  RedditShareButton,
   TwitterShareButton,
   LinkedinShareButton,
   WhatsappShareButton,
 } from "react-share"
 
 import {
-  FacebookIcon,
+  RedditIcon,
   LinkedinIcon,
   TwitterIcon,
   WhatsappIcon,
 } from "react-share"
+import RelatedArticles from "./RelatedArticles"
 
 export default function ShowArticle() {
   const { id } = useParams()
   const [DataContext, setDataContext] = useContext(ContextData)
   const [counter, setCounter] = useState(1)
 
+  useEffect(() => {
+    DataContext.forEach((item) => {
+      if (item.id === +id) {
+        setCounter(item.clap)
+      }
+    })
+  }, [id])
+
   const upvoteHandler = () => {
-    setCounter((counter) => counter + 1)
+    let newValue = counter + 1
+    setCounter(() => newValue)
     setDataContext((prevState) =>
       prevState.map((article) =>
-        article.id === id
+        article.id === +id
           ? {
-              ...DataContext,
-              clap: counter,
+              ...article,
+              clap: newValue,
             }
           : article
       )
     )
   }
-
-  let extraStart = +id + 1
-  let extraEnd = +id + 3
-
-  if (id >= 34) {
-    extraStart = 34
-    extraEnd = 36
-  }
-
-  const MoreArticles = (
-    <div className="moreArticles">
-      {DataContext.map((item) => {
-        return item.id >= extraStart && item.id <= extraEnd ? (
-          <div
-            className="moreAllArticle"
-            key={Math.floor(Math.random() * 1000)}
-          >
-            <h4>Related reads</h4>
-            <Link to={`/article/${item.id}`} className="link">
-              <img
-                src={item.src}
-                alt={item.alt}
-                className="relatedArticleImage"
-              />
-            </Link>
-            <div className="moreAllText">
-              <Link to={`/article/${item.id}`} className="link">
-                <h2>{item.title}</h2>
-              </Link>
-              {/* <br /> */}
-              <div className="authorDetails">
-                <img src={AuthorImage} alt="author" className="authorImage" />
-                <div>
-                  <p className="authorName">{item.author}</p>
-                  <div>
-                    <small>{item.date}</small> . <small>{item.readTime}</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : null
-      })}
-    </div>
-  )
 
   return (
     <div>
@@ -102,19 +67,32 @@ export default function ShowArticle() {
                   </div>
                 </div>
                 <div>
-                  <FacebookShareButton url={window.location.href}>
-                    <FacebookIcon size={32} round={true} />
-                  </FacebookShareButton>
+                  <RedditShareButton
+                    url={window.location.href}
+                    title={item.title}
+                  >
+                    <RedditIcon size={32} round={true} />
+                  </RedditShareButton>
                   &nbsp;
-                  <WhatsappShareButton url={window.location.href}>
+                  <WhatsappShareButton
+                    url={window.location.href}
+                    title={item.title}
+                  >
                     <WhatsappIcon size={32} round={true} />
                   </WhatsappShareButton>
                   &nbsp;
-                  <TwitterShareButton url={window.location.href}>
+                  <TwitterShareButton
+                    url={window.location.href}
+                    title={item.title}
+                  >
                     <TwitterIcon size={32} round={true} />
                   </TwitterShareButton>
                   &nbsp;
-                  <LinkedinShareButton url={window.location.href}>
+                  <LinkedinShareButton
+                    url={window.location.href}
+                    title={item.title}
+                    summary={item.details}
+                  >
                     <LinkedinIcon size={32} round={true} />
                   </LinkedinShareButton>
                 </div>
@@ -152,7 +130,7 @@ export default function ShowArticle() {
       <div className="moreArticlesContainer">
         <h3>More From The Siren</h3>
         <hr />
-        {MoreArticles}
+        <RelatedArticles />
       </div>
     </div>
   )
