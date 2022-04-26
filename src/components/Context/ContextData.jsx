@@ -613,7 +613,7 @@ export const ArticleData = (props) => {
 
       Mittelberg and the surrounding nature are perfect for everyone who wants to switch off from everyday stress and instead want to immerse themselves in nature. Whether for hiking, cycling or eating out with a view, Mittelberg is the perfect starting point. The best time to visit this region of Austria is certainly summer, preferably in May and June, when the meadows are in bloom. We would recommend to stay four to seven days to discover Mittelberg.`,
       id: 26,
-      clap: 100,
+      clap: Math.floor(Math.random() * 50),
     },
     {
       src: "https://images.unsplash.com/photo-1545424436-3cc26c0ac5a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1176&q=80",
@@ -631,7 +631,7 @@ export const ArticleData = (props) => {
     
     Nearest romantic getaways today at night, places near me, local wedding venues, best small beach town, restaurants, outside, things to do with kids near me, staycation, beaches, resorts near me, how do I plan: NC beaches, Ft Lauderdale, Day trips from NYC, From Chicago, PA, CT, CA, Hilton Head, Castles in Texas, GA beaches`,
       id: 27,
-      clap: 1,
+      clap: Math.floor(Math.random() * 20),
     },
     {
       src: "https://images.unsplash.com/photo-1629985692757-48648f4f1fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
@@ -650,7 +650,7 @@ export const ArticleData = (props) => {
     
       Places to eat near me, free points of interest, lakes near me, waterfalls, weekend getaways near me, 3-day foodie places to visit in September, October, November, December, RV, prettiest places, lodging, campground, hangout, where is, spas, holiday, museum, hiking near me, canoeing, hotels close to me, sushi, hikes, scenic spots: Fire Island NY, Italy beaches, Delaware beaches, Claremont, Pigeon Forge, Bluffton`,
       id: 28,
-      clap: 1,
+      clap: Math.floor(Math.random() * 10),
     },
 
     {
