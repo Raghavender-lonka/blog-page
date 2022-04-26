@@ -1,0 +1,138 @@
+.containerArticle {
+  padding: 1rem 25rem;
+  text-align: left;
+}
+
+.articleImage {
+  width: 100%;
+  height: 100%;
+}
+
+.authorDetails {
+  width: fit-content;
+  /* min-width: 100%; */
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.authorImage {
+  box-shadow: none;
+  width: 100px;
+  height: 100px;
+}
+
+.writtenBy {
+  margin: 0;
+}
+
+.articleTitle {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.authorName {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0.5rem 0;
+}
+
+.authorDetailsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shareBtn {
+  font-size: 30px;
+  color: gray;
+}
+
+.articleTags {
+  background-color: whitesmoke;
+  width: fit-content;
+  padding: 0.4rem;
+  color: black;
+}
+
+/* ------------------- */
+/* Clap container      */
+/* ------------------- */
+
+.clapContainer {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem;
+  justify-content: flex-start;
+}
+
+.clapContainer button {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.clap {
+  box-shadow: none;
+}
+
+/* ------------------- */
+/* More Articles       */
+/* ------------------- */
+
+.moreArticles {
+  /* margin-top: 5rem; */
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.moreAllArticle {
+  width: 25rem;
+  height: 35rem;
+}
+
+.moreAllArticle h4 {
+  color: gray;
+}
+
+.relatedArticleImage {
+  width: 90%;
+  height: 229px;
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.moreAllText {
+  /* padding: 0 2rem; */
+  height: 16rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.moreAllText .link h2 {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.moreArticlesContainer {
+  background-color: whitesmoke;
+  padding: 2rem 10rem;
+  text-align: left;
+}
+
+.articleText {
+  /* width: 46vw; */
+  white-space: pre-line;
+  font-size: 18px;
+  text-align: left;
+  padding: 1em;
+  line-height: 1.5em;
+}
