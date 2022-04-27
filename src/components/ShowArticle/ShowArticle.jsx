@@ -30,7 +30,7 @@ export default function ShowArticle() {
         setCounter(item.clap)
       }
     })
-  }, [id])
+  }, [DataContext, id])
 
   const upvoteHandler = () => {
     let newValue = counter + 1
