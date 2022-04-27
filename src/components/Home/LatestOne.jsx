@@ -55,9 +55,13 @@ export default function LatestOne() {
                     className="latestOneArticle"
                     key={Math.floor(Math.random() * 1000)}
                   >
-                    <img src={item.src} alt={item.alt} />
+                    <Link to={`/article/${item.id}`} className="link">
+                      <img src={item.src} alt={item.alt} />
+                    </Link>
                     <div className="LatestOneText">
-                      <h2>{item.title}</h2>
+                      <Link to={`/article/${item.id}`} className="link">
+                        <h2>{item.title}</h2>
+                      </Link>
                       <p>{item.details}</p>
                       <br />
                       <p>{item.info}</p>

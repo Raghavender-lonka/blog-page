@@ -41,7 +41,7 @@ export default function RelatedArticles() {
                 <img src={AuthorImage} alt="author" className="authorImage" />
                 <div>
                   <p className="authorName">{item.author}</p>
-                  <div>
+                  <div className="writtenTime">
                     <small>{item.date}</small> . <small>{item.readTime}</small>
                   </div>
                 </div>

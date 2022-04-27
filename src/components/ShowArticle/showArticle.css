@@ -1,5 +1,5 @@
 .containerArticle {
-  padding: 1rem 25rem;
+  padding: 5% 25%;
   text-align: left;
 }
 
@@ -92,8 +92,8 @@
 }
 
 .moreAllArticle {
-  width: 25rem;
-  height: 35rem;
+  width: 26vw;
+  height: 36vh;
 }
 
 .moreAllArticle h4 {
@@ -102,7 +102,7 @@
 
 .relatedArticleImage {
   width: 90%;
-  height: 229px;
+  height: 30vh;
   border-radius: 0px;
   box-shadow: none;
 }
@@ -124,8 +124,9 @@
 
 .moreArticlesContainer {
   background-color: whitesmoke;
-  padding: 2rem 10rem;
+  padding: 1% 10%;
   text-align: left;
+  height: 90vh;
 }
 
 .articleText {
@@ -135,4 +136,76 @@
   text-align: left;
   padding: 1em;
   line-height: 1.5em;
+}
+
+@media all and (max-width: 412px) {
+  .containerArticle {
+    padding: 0 5%;
+    text-align: left;
+  }
+  .authorDetailsContainer {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .articleTitle {
+    font-size: 26px;
+    margin-bottom: 1rem;
+  }
+  .authorDetails {
+    width: 100%;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  .authorName {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .Article br {
+    display: none;
+  }
+  .articleText {
+    padding-top: 2rem;
+  }
+  .authorDetails + hr {
+    display: none;
+  }
+  .moreArticlesContainer {
+    padding: 3% 5%;
+    height: fit-content;
+  }
+  .moreArticlesContainer hr {
+    margin-bottom: 2rem;
+  }
+  .moreArticles {
+    width: 100%;
+    padding-bottom: 5%;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+  .moreAllArticle {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    /* gap: 1rem; */
+    text-align: left;
+  }
+  .moreAllArticle .link img {
+    width: 150px;
+    height: 150px;
+  }
+  .moreAllArticle h4,
+  .moreAllArticle .authorDetails img {
+    display: none;
+  }
+  .moreAllText {
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .writtenTime {
+    display: none;
+  }
 }

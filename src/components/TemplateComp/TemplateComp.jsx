@@ -10,70 +10,73 @@ export default function TemplateComp(props) {
   const [showLoad, setShowLoad] = useState(false)
   return (
     <div className="mainContainer">
-      <div className="latestHeader">
-        <h1>{Heading}</h1>
-        <hr />
-      </div>
       <div className="ArticlesContainer">
-        <div className="ArticlesOneContainer">
-          <hr />
-          {DataContext.map((item) => {
-            return item.id >= Start && item.id < End ? (
-              <div
-                className="latestOneArticle"
-                key={Math.floor(Math.random() * 1000000)}
-              >
-                <Link to={`/article/${item.id}`} className="link">
-                  <img src={item.src} alt={item.alt} />
-                </Link>
-                <div className="LatestOneText">
+        <div>
+          <div className="topicHeader">
+            <h1>{Heading}</h1>
+          </div>
+          <div className="ArticlesOneContainer">
+            {DataContext.map((item) => {
+              return item.id >= Start && item.id < End ? (
+                <div
+                  className="latestOneArticle"
+                  key={Math.floor(Math.random() * 1000000)}
+                >
                   <Link to={`/article/${item.id}`} className="link">
-                    <h2>{item.title}</h2>
+                    <img src={item.src} alt={item.alt} />
                   </Link>
-                  <p>{item.details}</p>
-                  {/* <br /> */}
-                  <p>{item.info}</p>
-                </div>
-                {/* <hr /> */}
-              </div>
-            ) : null
-          })}
-          {!showLoad ? (
-            <button
-              className="loadContainer"
-              onClick={() => setShowLoad(!showLoad)}
-            >
-              <span className="loadMoreSpan">&nbsp;</span>
-              LOAD MORE
-            </button>
-          ) : null}
-          {showLoad
-            ? DataContext.map((item) => {
-                return item.id === End ? (
-                  <div
-                    className="latestOneArticle"
-                    key={Math.floor(Math.random() * 1000000)}
-                  >
+                  <div className="LatestOneText">
                     <Link to={`/article/${item.id}`} className="link">
-                      <img src={item.src} alt={item.alt} />
+                      <h2>{item.title}</h2>
                     </Link>
-                    <div className="LatestOneText">
-                      <Link to={`/article/${item.id}`} className="link">
-                        <h2>{item.title}</h2>
-                      </Link>
-                      <p>{item.details}</p>
-                      {/* <br /> */}
-                      <p>{item.info}</p>
-                    </div>
-                    {/* <hr /> */}
+                    <p>{item.details}</p>
+                    {/* <br /> */}
+                    <p>{item.info}</p>
                   </div>
-                ) : null
-              })
-            : null}
+                  {/* <hr /> */}
+                </div>
+              ) : null
+            })}
+            {!showLoad ? (
+              <button
+                className="loadContainer"
+                onClick={() => setShowLoad(!showLoad)}
+              >
+                <span className="loadMoreSpan">&nbsp;</span>
+                LOAD MORE
+              </button>
+            ) : null}
+            {showLoad
+              ? DataContext.map((item) => {
+                  return item.id === End ? (
+                    <div
+                      className="latestOneArticle"
+                      key={Math.floor(Math.random() * 1000000)}
+                    >
+                      <Link to={`/article/${item.id}`} className="link">
+                        <img src={item.src} alt={item.alt} />
+                      </Link>
+                      <div className="LatestOneText">
+                        <Link to={`/article/${item.id}`} className="link">
+                          <h2>{item.title}</h2>
+                        </Link>
+                        <p>{item.details}</p>
+                        {/* <br /> */}
+                        <p>{item.info}</p>
+                      </div>
+                      {/* <hr /> */}
+                    </div>
+                  ) : null
+                })
+              : null}
+          </div>
         </div>
         <div className="topPlusAd">
           <div className="topPosts">
-            {" "}
+            <div className="latestHeader">
+              <h1>Top Posts</h1>
+              <hr />
+            </div>
             {DataContext.map((item) => {
               return item.id === 1 ? (
                 <div

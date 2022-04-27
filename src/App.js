@@ -11,6 +11,7 @@ import Food from "./components/Food/Food"
 import { ArticleData } from "./components/Context/ContextData"
 import ShowArticle from "./components/ShowArticle/ShowArticle"
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
+import Footer from "./components/Footer"
 // import { useState } from "react"
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
           </Routes>
         </ScrollToTop>
       </ArticleData>
+      <Footer />
     </div>
   )
 }

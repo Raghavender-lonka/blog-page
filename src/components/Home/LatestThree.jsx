@@ -15,7 +15,7 @@ export default function LatestThree() {
         {DataContext.map((item) => {
           return item.id >= 21 && item.id <= 23 ? (
             <React.Fragment key={Math.floor(Math.random() * 1000)}>
-              <div className="latestAllArticle">
+              <div className="latestThreeArticle">
                 <div className="LatestAllText">
                   <Link to={`/article/${item.id}`} className="link">
                     <h2>{item.title}</h2>

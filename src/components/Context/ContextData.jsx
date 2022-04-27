@@ -126,7 +126,7 @@ export const ArticleData = (props) => {
       alt: "poster",
       title: "RRR 31 Days Box Office Collections",
       details:
-        "Gujarat is vastly underrated and it’s a mystery to us why the region isn’t more well-known as a tourist destination. It has a plethora of temples and palaces",
+        "Jr NTR and Ram Charan starrer, RRR is refusing to slow down at the box office. The film is holding particularly well in its strong forte - the twin Telugu states Andhra Pradesh and Telangana.",
       info: "Bollywood / April 25 2022",
       date: "April 25 2022",
       tags: "Cinema",
