@@ -33,7 +33,7 @@ const MainGallery = () => {
               </Link>
               <div className="mainArticle1Text">
                 <Link to={`/article/${item.id}`} className="link">
-                  <h2>{item.title}</h2>
+                  <h2 className="mainArticle1Heading">{item.title}</h2>
                 </Link>
                 <small>{item.info}</small>
               </div>

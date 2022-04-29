@@ -1,6 +1,6 @@
 import React from "react"
 import TemplateComp from "../TemplateComp/TemplateComp"
-import "./bollywood.css"
+// import "./bollywood.css"
 
 export default function Bollywood() {
   let Start = 6

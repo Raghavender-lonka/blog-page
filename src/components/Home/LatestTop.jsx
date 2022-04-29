@@ -18,7 +18,7 @@ export default function LatestTop() {
               <img src={item.src} alt={item.alt} />
             </Link>
             <div className="topArticlesText">
-              <div>
+              <div className="topOneArticleInfo">
                 <Link to={`/article/${item.id}`} className="link">
                   <h2>{item.title}</h2>
                 </Link>

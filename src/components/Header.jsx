@@ -13,7 +13,7 @@ const HeaderComp = () => {
       <div className="menuBtnContainer">
         <input id="check01" type="checkbox" name="menu" />
         <label htmlFor="check01">
-          <span class="material-symbols-outlined">menu</span>
+          <span className="material-symbols-outlined">menu</span>
         </label>
         <div className="navBar">
           <NavLink to="/home" className="link">

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { ContextData } from "../Context/ContextData"
-import "../Bollywood/bollywood.css"
+import "./templateComp.css"
 import PrepbytesImage from "../../assests/ad1.png"
 
 export default function TemplateComp(props) {

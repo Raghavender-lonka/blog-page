@@ -5,7 +5,7 @@ import { ContextData } from "../Context/ContextData"
 const SideArticle = () => {
   const [dataContext] = useContext(ContextData)
   return (
-    <div className="sideArticle">
+    <React.Fragment>
       {dataContext
         .filter((item) => item.id >= 27 && item.id <= 28)
         .map((item) => {
@@ -26,7 +26,7 @@ const SideArticle = () => {
             </div>
           )
         })}
-    </div>
+    </React.Fragment>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from "react"
 import TemplateComp from "../TemplateComp/TemplateComp"
-import "../Bollywood/bollywood.css"
+// import "../Bollywood/bollywood.css"
 
 export default function Fitness() {
   let Start = 21

@@ -10,7 +10,7 @@ export default function LatestOne() {
   const [showLoad, setShowLoad] = useState(false)
 
   return (
-    <div>
+    <div className="latestGridContainer">
       <div className="latestHeader">
         <h1>Latest Articles</h1>
         <hr />

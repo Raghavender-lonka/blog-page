@@ -101,6 +101,8 @@ export default function ShowArticle() {
               <br />
               <br />
               <br />
+              <p>{item.details}</p>
+
               <div className="articleText">{item.description}</div>
               <br />
               <div className="articleTags">{item.tags}</div>

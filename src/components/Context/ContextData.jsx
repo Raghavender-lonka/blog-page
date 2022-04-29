@@ -431,7 +431,7 @@ export const ArticleData = (props) => {
       tags: "Cinema",
       author: "chandran",
       readTime: "5 min read",
-      description: `hor: Love and Thunder teaser is finally here and it’s everything we had been waiting for. Directed by Taika Waititi, the much-awaited Marvel film will release in theatres on July 8. In the teaser, Chris Hemsworth’s Thor declares his “superhero-ing’ days are over”, and he tries to discover himself in New Asgard. Natalie Portman as Goddess of Thunder also makes an entry.
+      description: `Thor: Love and Thunder teaser is finally here and it’s everything we had been waiting for. Directed by Taika Waititi, the much-awaited Marvel film will release in theatres on July 8. In the teaser, Chris Hemsworth’s Thor declares his “superhero-ing’ days are over”, and he tries to discover himself in New Asgard. Natalie Portman as Goddess of Thunder also makes an entry.
 
       THOR: LOVE AND THUNDER’S IMPRESSIVE TEASER
       Thor: Love and Thunder is the fourth Thor film, after Thor (2011), Thor: The Dark World (2013) and Thor: Ragnarok (2017). Marvel Studios shared the latest film’s teaser today, April 18. It’s already going viral. In the teaser, we see Thor trying to find himself and discovering peace, while Tessa Thompson leads Asgardians as Valkyrie. Chris Pratt from Guardians of the Galaxy is also seen in the teaser. Towards the end, we see Jane Foster becoming The Mighty Thor and wielding the magical hammer, Mjolnir.`,
@@ -597,7 +597,7 @@ export const ArticleData = (props) => {
     {
       src: "https://images.unsplash.com/photo-1468901184895-0cec1ee34ff5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       alt: "poster",
-      title: "Mittelberg, one of the best villages in Austria",
+      title: "Mittelberg, Austria",
       details:
         "Mittelberg, one of the best villages in Austria to explore Kleinwalsertal",
       info: "Travel / April 25 2022",
