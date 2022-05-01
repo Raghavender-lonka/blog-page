@@ -4,10 +4,12 @@ import { ContextData } from "../Context/ContextData"
 import LatestTop from "./LatestTop"
 import LatestTwo from "./LatestTwo"
 import PrepbytesImage from "../../assests/ad1.png"
+import { ContextTheme } from "../Context/ContextTheme"
 
 export default function LatestOne() {
   const [DataContext] = useContext(ContextData)
   const [showLoad, setShowLoad] = useState(false)
+  const [darkMode] = useContext(ContextTheme)
 
   return (
     <div className="latestGridContainer">
@@ -41,7 +43,7 @@ export default function LatestOne() {
           })}
           {!showLoad ? (
             <button
-              className="loadContainer"
+              className={` loadContainer ${darkMode ? "Dark" : "Light2"}`}
               onClick={() => setShowLoad(!showLoad)}
             >
               <span className="loadMoreSpan">&nbsp;</span>

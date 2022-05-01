@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ContextData } from "../Context/ContextData"
+import { ContextTheme } from "../Context/ContextTheme"
 
 export default function LatestThree() {
   const [DataContext] = useContext(ContextData)
+  const [darkMode] = useContext(ContextTheme)
 
   return (
     <div className="articleContainer">
@@ -33,7 +35,7 @@ export default function LatestThree() {
       <hr />
 
       <Link to="/bollywood">
-        <button className="viewContainer">
+        <button className={` viewContainer ${darkMode ? "Dark" : "Light2"}`}>
           <p> VIEW MORE</p>
           <p className="viewMoreSpan">&nbsp;</p>
         </button>

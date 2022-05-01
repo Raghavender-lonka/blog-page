@@ -53,10 +53,10 @@
 }
 
 .articleTags {
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   width: fit-content;
   padding: 0.4rem;
-  color: black;
+  /* color: black; */
 }
 
 /* ------------------- */
@@ -71,7 +71,7 @@
 }
 
 .clapContainer button {
-  background-color: white;
+  /* background-color: white; */
   border: none;
   cursor: pointer;
 }
@@ -127,6 +127,24 @@
   padding: 1% 10%;
   text-align: left;
   height: 90vh;
+}
+
+.Dark {
+  background-color: #2c2b2b;
+  color: white;
+}
+
+.Dark2 {
+  background-color: #3b3b3b;
+  color: white;
+}
+.Light {
+  background-color: whitesmoke;
+  color: black;
+}
+.Light2 {
+  background-color: white;
+  color: black;
 }
 
 .articleText {

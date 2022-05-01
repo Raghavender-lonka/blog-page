@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { NavLink } from "react-router-dom"
-
+import { ContextTheme } from "./Context/ContextTheme"
 const HeaderComp = () => {
+  const [darkMode] = useContext(ContextTheme)
   return (
     <div className="logoHead">
       <div className="logoContainer">
@@ -15,7 +16,7 @@ const HeaderComp = () => {
         <label htmlFor="check01">
           <span className="material-symbols-outlined">menu</span>
         </label>
-        <div className="navBar">
+        <div className={`navBar ${darkMode ? "Dark" : "Light2"}`}>
           <NavLink to="/home" className="link">
             Home
           </NavLink>

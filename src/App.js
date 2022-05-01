@@ -12,23 +12,25 @@ import { ArticleData } from "./components/Context/ContextData"
 import ShowArticle from "./components/ShowArticle/ShowArticle"
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
 import Footer from "./components/Footer"
-// import { useState } from "react"
+import { useContext } from "react"
+import { ContextTheme } from "./components/Context/ContextTheme"
 
 function App() {
-  // const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useContext(ContextTheme)
 
-  // let Dark = {
-  //   backgroundColor: "black",
-  //   color: "white",
-  // }
+  const handleTheme = () => {
+    setDarkMode((prev) => !prev)
+  }
 
   return (
-    // <div className={darkMode ? `App Dark` : `App`}>
-    <div className="App">
+    <div className={`App ${darkMode ? `Dark` : ""}`}>
       <HeaderComp />
-      {/* <button onClick={() => setDarkMode(!darkMode)} className="darkModeBtn">
+      <button
+        onClick={handleTheme}
+        className={`darkModeBtn ${darkMode ? `Dark2` : "Light"}`}
+      >
         {darkMode ? "Light Mode" : "Dark Mode"}
-      </button> */}
+      </button>
       <ArticleData>
         <ScrollToTop>
           <Routes>

@@ -1,9 +1,11 @@
 import React, { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ContextData } from "../Context/ContextData"
+import { ContextTheme } from "../Context/ContextTheme"
 
 export default function LatestAll() {
   const [DataContext] = useContext(ContextData)
+  const [darkMode] = useContext(ContextTheme)
 
   return (
     <div className="articleContainer">
@@ -15,7 +17,7 @@ export default function LatestAll() {
         {DataContext.map((item) => {
           return item.id >= 29 && item.id <= 31 ? (
             <div
-              className="latestAllArticle"
+              className={`latestAllArticle ${darkMode ? `Dark2` : "Light"}`}
               key={Math.floor(Math.random() * 1000)}
             >
               <Link to={`/article/${item.id}`} className="link">

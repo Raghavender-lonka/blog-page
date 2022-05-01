@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import { ContextData } from "../Context/ContextData"
-import "./showArticle.css"
+import { ContextTheme } from "../Context/ContextTheme"
+import RelatedArticles from "./RelatedArticles"
 import AuthorImage from "../../assests/author.png"
 import Clap from "../../assests/clap.svg"
-import { useParams } from "react-router-dom"
+import "./showArticle.css"
 import {
   RedditShareButton,
   TwitterShareButton,
@@ -17,11 +19,11 @@ import {
   TwitterIcon,
   WhatsappIcon,
 } from "react-share"
-import RelatedArticles from "./RelatedArticles"
 
 export default function ShowArticle() {
   const { id } = useParams()
   const [DataContext, setDataContext] = useContext(ContextData)
+  const [darkMode] = useContext(ContextTheme)
   const [counter, setCounter] = useState(1)
 
   useEffect(() => {
@@ -105,9 +107,14 @@ export default function ShowArticle() {
 
               <div className="articleText">{item.description}</div>
               <br />
-              <div className="articleTags">{item.tags}</div>
+              <div className={` articleTags ${darkMode ? "Dark2" : "Light"}`}>
+                {item.tags}
+              </div>
               <div className="clapContainer">
-                <button onClick={upvoteHandler}>
+                <button
+                  onClick={upvoteHandler}
+                  className={`${darkMode ? `Dark` : "Light2"}`}
+                >
                   <img src={Clap} alt="clap" className="clap" />
                 </button>
                 {/* <p>{item.clap} claps</p> */}
@@ -129,7 +136,7 @@ export default function ShowArticle() {
           ) : null
         })}
       </div>
-      <div className="moreArticlesContainer">
+      <div className={`moreArticlesContainer ${darkMode ? `Dark2` : "Light"}`}>
         <h3>More From The Siren</h3>
         <hr />
         <RelatedArticles />

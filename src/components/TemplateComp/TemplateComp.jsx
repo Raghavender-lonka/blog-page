@@ -3,11 +3,14 @@ import { Link } from "react-router-dom"
 import { ContextData } from "../Context/ContextData"
 import "./templateComp.css"
 import PrepbytesImage from "../../assests/ad1.png"
+import { ContextTheme } from "../Context/ContextTheme"
 
 export default function TemplateComp(props) {
   const { Start, End, Heading } = props
   const [DataContext] = useContext(ContextData)
   const [showLoad, setShowLoad] = useState(false)
+  const [darkMode] = useContext(ContextTheme)
+
   return (
     <div className="mainContainer">
       <div className="ArticlesContainer">
@@ -39,7 +42,7 @@ export default function TemplateComp(props) {
             })}
             {!showLoad ? (
               <button
-                className="loadContainer"
+                className={` loadContainer ${darkMode ? "Dark" : "Light2"}`}
                 onClick={() => setShowLoad(!showLoad)}
               >
                 <span className="loadMoreSpan">&nbsp;</span>
