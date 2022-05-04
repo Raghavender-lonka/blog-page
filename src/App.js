@@ -1,5 +1,5 @@
 import "./App.css"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import HeaderComp from "./components/Header"
 import Home from "./components/Home/Home"
 import NotFound from "./components/NotFound/NotFound"
