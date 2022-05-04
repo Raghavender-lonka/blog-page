@@ -34,7 +34,7 @@ function App() {
       <ArticleData>
         <ScrollToTop>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
             <Route path="/bollywood" element={<Bollywood />} />
             <Route path="/technology" element={<Technology />} />
