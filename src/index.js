@@ -8,13 +8,11 @@ import { ThemeData } from "./components/Context/ContextTheme"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ThemeData>
-        <App />
-      </ThemeData>
-    </BrowserRouter>
-  </React.StrictMode>
+  <BrowserRouter>
+    <ThemeData>
+      <App />
+    </ThemeData>
+  </BrowserRouter>
 )
 
 // If you want to start measuring performance in your app, pass a function

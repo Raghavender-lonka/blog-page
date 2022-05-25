@@ -6,25 +6,21 @@ import axios from "axios"
 import { Link } from "react-router-dom"
 import PrepbytesImage from "../../assests/ad1.png"
 
-// import LatestAll from "./LatestAll"
-// import LatestOne from "./LatestOne"
-// import LatestThree from "./LatestThree"
-// import MainGallery from "./MainGallery"
-
 const Home = () => {
   const [article, setArticle] = useState([])
   const [darkMode] = useContext(ContextTheme)
   const [showLoad, setShowLoad] = useState(false)
 
-  console.log("rendering")
-  const url = "http://localhost:9000/"
+  const url = "http://localhost:9000/api/v1/home"
   useEffect(() => {
     axios.get(url).then((res) => {
-      const data = res.data
-      setArticle(data)
+      setArticle(res.data)
+
       // console.log("from node", data)
     })
   }, [url])
+
+  console.log("home")
 
   return (
     <div className="mainContainer">

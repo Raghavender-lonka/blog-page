@@ -8,29 +8,22 @@ import "./templateComp.css"
 import PrepbytesImage from "../../assests/ad1.png"
 
 export default function TemplateComp(props) {
-  const { Start, End, Heading } = props
+  const { End, Heading } = props
   const [showLoad, setShowLoad] = useState(false)
   const [darkMode] = useContext(ContextTheme)
   const [article, setArticle] = useState([])
-  const [topArticle, setTopArticle] = useState([])
 
-  console.log("temp")
-
-  useEffect(() => {
-    axios.get("http://localhost:9000/").then((req, res) => {
-      const data = req.data.filter((item) => item.id >= Start && item.id <= End)
-      setArticle(data)
-      // console.log("from node", data)
-    })
-  }, [Start, End])
+  const category = Heading.toLowerCase()
 
   useEffect(() => {
-    axios.get("http://localhost:9000/").then((req, res) => {
-      const data = req.data.filter((item) => item.id >= 1 && item.id <= 4)
-      setTopArticle(data)
-      // console.log("from node", data)
-    })
-  }, [Start, End])
+    axios
+      .get(`http://localhost:9000/api/v1/category/?category=${category}`)
+      .then((req) => {
+        const data = req.data
+        setArticle(data)
+        // console.log("from node", data)
+      })
+  }, [category])
 
   return (
     <div className="mainContainer">
@@ -40,8 +33,8 @@ export default function TemplateComp(props) {
             <h1>{Heading}</h1>
           </div>
           <div className="ArticlesOneContainer">
-            {article.map((item) => {
-              return item.id >= Start && item.id < End ? (
+            {article.slice(0, 4).map((item) => {
+              return (
                 <div
                   className="latestOneArticle"
                   key={Math.floor(Math.random() * 1000000)}
@@ -54,12 +47,10 @@ export default function TemplateComp(props) {
                       <h2>{item.title}</h2>
                     </Link>
                     <p>{item.details}</p>
-                    {/* <br /> */}
                     <p>{item.info}</p>
                   </div>
-                  {/* <hr /> */}
                 </div>
-              ) : null
+              )
             })}
             {!showLoad ? (
               <button
@@ -101,7 +92,7 @@ export default function TemplateComp(props) {
               <h1>Top Posts</h1>
               <hr />
             </div>
-            {topArticle.map((item) => {
+            {article.slice(5, 7).map((item, index) => {
               return item.id === 1 ? (
                 <div
                   className="topOneArticle"
@@ -118,14 +109,14 @@ export default function TemplateComp(props) {
                       <p>{item.info}</p>
                       {/* <br /> */}
                     </div>
-                    <div className="topListNum">{item.id}</div>
+                    <div className="topListNum">{index}</div>
                   </div>
                   {/* <hr /> */}
                 </div>
               ) : null
             })}
-            {topArticle.map((item) => {
-              return item.id >= 2 && item.id <= 4 ? (
+            {article.slice(6).map((item, index) => {
+              return (
                 <div
                   className="topArticle"
                   key={Math.floor(Math.random() * 1000000)}
@@ -141,11 +132,11 @@ export default function TemplateComp(props) {
                       <p>{item.info}</p>
                       {/* <br /> */}
                     </div>
-                    <div className="topListNum">{item.id}</div>
+                    <div className="topListNum">{index + 1}</div>
                   </div>
                   {/* <hr /> */}
                 </div>
-              ) : null
+              )
             })}
           </div>
           <div className="pageAd">

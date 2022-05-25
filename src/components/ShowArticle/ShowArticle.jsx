@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react"
+// import Footer from "../Footer"
 import { useParams } from "react-router-dom"
-import { ContextData } from "../Context/ContextData"
+import axios from "axios"
+
 import { ContextTheme } from "../Context/ContextTheme"
-import RelatedArticles from "./RelatedArticles"
 import AuthorImage from "../../assests/author.png"
-import Clap from "../../assests/clap.svg"
 import "./showArticle.css"
 import {
   RedditShareButton,
@@ -22,39 +22,22 @@ import {
 
 export default function ShowArticle() {
   const { id } = useParams()
-  const [DataContext, setDataContext] = useContext(ContextData)
   const [darkMode] = useContext(ContextTheme)
-  const [counter, setCounter] = useState(1)
+  const [article, setArticle] = useState([])
 
   useEffect(() => {
-    DataContext.forEach((item) => {
-      if (item.id === +id) {
-        setCounter(item.clap)
-      }
+    axios.get(`http://localhost:9000/api/v1/article/${id}`).then((res) => {
+      setArticle(res.data)
+      // console.log("from node", item)
     })
-  }, [DataContext, id])
+  }, [id])
 
   console.log("show")
-
-  const upvoteHandler = () => {
-    let newValue = counter + 1
-    setCounter(() => newValue)
-    setDataContext((prevState) =>
-      prevState.map((article) =>
-        article.id === +id
-          ? {
-              ...article,
-              clap: newValue,
-            }
-          : article
-      )
-    )
-  }
 
   return (
     <div>
       <div className="containerArticle">
-        {DataContext.map((item) => {
+        {article.map((item) => {
           return item.id === +id ? (
             <div className="Article" key={Math.floor(Math.random() * 1000)}>
               <h2 className="articleTitle">{item.title}</h2>
@@ -112,16 +95,7 @@ export default function ShowArticle() {
               <div className={` articleTags ${darkMode ? "Dark2" : "Light"}`}>
                 {item.tags}
               </div>
-              <div className="clapContainer">
-                <button
-                  onClick={upvoteHandler}
-                  className={`${darkMode ? `Dark` : "Light2"}`}
-                >
-                  <img src={Clap} alt="clap" className="clap" />
-                </button>
-                {/* <p>{item.clap} claps</p> */}
-                <p>{counter} claps</p>
-              </div>
+
               <hr />
               <div className="authorDetails">
                 <img src={AuthorImage} alt="author" className="authorImage" />
@@ -138,11 +112,7 @@ export default function ShowArticle() {
           ) : null
         })}
       </div>
-      <div className={`moreArticlesContainer ${darkMode ? `Dark2` : "Light"}`}>
-        <h3>More From The Siren</h3>
-        <hr />
-        <RelatedArticles />
-      </div>
+      {/* <Footer /> */}
     </div>
   )
 }
