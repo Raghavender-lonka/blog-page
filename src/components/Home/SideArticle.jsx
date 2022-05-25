@@ -1,12 +1,22 @@
-import React, { useContext } from "react"
+import React, { useEffect, useState } from "react"
+
+import axios from "axios"
 import { Link } from "react-router-dom"
-import { ContextData } from "../Context/ContextData"
 
 const SideArticle = () => {
-  const [dataContext] = useContext(ContextData)
+  const [article, setArticle] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:9000/").then((req, res) => {
+      const data = req.data
+      setArticle(data)
+      // console.log("from node", data)
+    })
+  }, [])
+
   return (
     <React.Fragment>
-      {dataContext
+      {article
         .filter((item) => item.id >= 27 && item.id <= 28)
         .map((item) => {
           return (

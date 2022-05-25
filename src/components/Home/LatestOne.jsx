@@ -1,15 +1,25 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useEffect } from "react"
+
+import axios from "axios"
 import { Link } from "react-router-dom"
-import { ContextData } from "../Context/ContextData"
+
 import LatestTop from "./LatestTop"
 import LatestTwo from "./LatestTwo"
 import PrepbytesImage from "../../assests/ad1.png"
 import { ContextTheme } from "../Context/ContextTheme"
 
 export default function LatestOne() {
-  const [DataContext] = useContext(ContextData)
   const [showLoad, setShowLoad] = useState(false)
   const [darkMode] = useContext(ContextTheme)
+  const [article, setArticle] = useState([])
+
+  useEffect(() => {
+    axios.get("http://localhost:9000/").then((req, res) => {
+      const data = req.data.filter((item) => item.id >= 6 && item.id <= 9)
+      setArticle(data)
+      // console.log("from node", data)
+    })
+  }, [])
 
   return (
     <div className="latestGridContainer">
@@ -20,7 +30,7 @@ export default function LatestOne() {
       <div className="latestArticlesContainer">
         <div className="latestOneContainer">
           <hr />
-          {DataContext.map((item) => {
+          {article.map((item) => {
             return item.id >= 6 && item.id <= 8 ? (
               <div
                 className="latestOneArticle"
@@ -51,7 +61,7 @@ export default function LatestOne() {
             </button>
           ) : null}
           {showLoad
-            ? DataContext.map((item) => {
+            ? article.map((item) => {
                 return item.id === 9 ? (
                   <div
                     className="latestOneArticle"

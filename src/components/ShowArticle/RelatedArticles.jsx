@@ -28,7 +28,7 @@ export default function RelatedArticles() {
             <Link to={`/article/${item.id}`} className="link">
               <img
                 src={item.src}
-                alt={item.alt}
+                alt={"poster"}
                 className="relatedArticleImage"
               />
             </Link>

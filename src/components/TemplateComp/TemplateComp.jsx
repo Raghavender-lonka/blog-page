@@ -1,15 +1,36 @@
-import React, { useContext, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
+
+import axios from "axios"
 import { Link } from "react-router-dom"
-import { ContextData } from "../Context/ContextData"
+
+import { ContextTheme } from "../Context/ContextTheme"
 import "./templateComp.css"
 import PrepbytesImage from "../../assests/ad1.png"
-import { ContextTheme } from "../Context/ContextTheme"
 
 export default function TemplateComp(props) {
   const { Start, End, Heading } = props
-  const [DataContext] = useContext(ContextData)
   const [showLoad, setShowLoad] = useState(false)
   const [darkMode] = useContext(ContextTheme)
+  const [article, setArticle] = useState([])
+  const [topArticle, setTopArticle] = useState([])
+
+  console.log("temp")
+
+  useEffect(() => {
+    axios.get("http://localhost:9000/").then((req, res) => {
+      const data = req.data.filter((item) => item.id >= Start && item.id <= End)
+      setArticle(data)
+      // console.log("from node", data)
+    })
+  }, [Start, End])
+
+  useEffect(() => {
+    axios.get("http://localhost:9000/").then((req, res) => {
+      const data = req.data.filter((item) => item.id >= 1 && item.id <= 4)
+      setTopArticle(data)
+      // console.log("from node", data)
+    })
+  }, [Start, End])
 
   return (
     <div className="mainContainer">
@@ -19,14 +40,14 @@ export default function TemplateComp(props) {
             <h1>{Heading}</h1>
           </div>
           <div className="ArticlesOneContainer">
-            {DataContext.map((item) => {
+            {article.map((item) => {
               return item.id >= Start && item.id < End ? (
                 <div
                   className="latestOneArticle"
                   key={Math.floor(Math.random() * 1000000)}
                 >
                   <Link to={`/article/${item.id}`} className="link">
-                    <img src={item.src} alt={item.alt} />
+                    <img src={item.src} alt={"poster"} />
                   </Link>
                   <div className="LatestOneText">
                     <Link to={`/article/${item.id}`} className="link">
@@ -50,14 +71,14 @@ export default function TemplateComp(props) {
               </button>
             ) : null}
             {showLoad
-              ? DataContext.map((item) => {
+              ? article.map((item) => {
                   return item.id === End ? (
                     <div
                       className="latestOneArticle"
                       key={Math.floor(Math.random() * 1000000)}
                     >
                       <Link to={`/article/${item.id}`} className="link">
-                        <img src={item.src} alt={item.alt} />
+                        <img src={item.src} alt={"poster"} />
                       </Link>
                       <div className="LatestOneText">
                         <Link to={`/article/${item.id}`} className="link">
@@ -80,14 +101,14 @@ export default function TemplateComp(props) {
               <h1>Top Posts</h1>
               <hr />
             </div>
-            {DataContext.map((item) => {
+            {topArticle.map((item) => {
               return item.id === 1 ? (
                 <div
                   className="topOneArticle"
                   key={Math.floor(Math.random() * 1000000)}
                 >
                   <Link to={`/article/${item.id}`} className="link">
-                    <img src={item.src} alt={item.alt} />
+                    <img src={item.src} alt={"poster"} />
                   </Link>
                   <div className="topArticlesText">
                     <div>
@@ -103,14 +124,14 @@ export default function TemplateComp(props) {
                 </div>
               ) : null
             })}
-            {DataContext.map((item) => {
+            {topArticle.map((item) => {
               return item.id >= 2 && item.id <= 4 ? (
                 <div
                   className="topArticle"
                   key={Math.floor(Math.random() * 1000000)}
                 >
                   <Link to={`/article/${item.id}`} className="link">
-                    <img src={item.src} alt={item.alt} />
+                    <img src={item.src} alt={"poster"} />
                   </Link>
                   <div className="topArticlesText">
                     <div className="topArticlesInfo">

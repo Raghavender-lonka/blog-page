@@ -1,3 +1,4 @@
+import React from "react"
 import "./App.css"
 import { Routes, Route, Navigate } from "react-router-dom"
 import HeaderComp from "./components/Header"
@@ -52,4 +53,4 @@ function App() {
   )
 }
 
-export default App
+export default React.memo(App)

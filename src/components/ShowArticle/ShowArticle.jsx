@@ -34,6 +34,8 @@ export default function ShowArticle() {
     })
   }, [DataContext, id])
 
+  console.log("show")
+
   const upvoteHandler = () => {
     let newValue = counter + 1
     setCounter(() => newValue)
@@ -99,7 +101,7 @@ export default function ShowArticle() {
                   </LinkedinShareButton>
                 </div>
               </div>
-              <img src={item.src} alt={item.alt} className="articleImage" />
+              <img src={item.src} alt={"poster"} className="articleImage" />
               <br />
               <br />
               <br />
