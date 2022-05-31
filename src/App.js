@@ -1,6 +1,8 @@
-import React from "react"
-import "./App.css"
+import React, { useContext } from "react"
 import { Routes, Route, Navigate } from "react-router-dom"
+
+// Components
+
 import HeaderComp from "./components/Header"
 import Home from "./components/Home/Home"
 import NotFound from "./components/NotFound/NotFound"
@@ -9,12 +11,17 @@ import Technology from "./components/Technology/Technology"
 import Hollywood from "./components/Hollywood/Hollywood"
 import Fitness from "./components/Fitness/Fitness"
 import Food from "./components/Food/Food"
-import { ArticleData } from "./components/Context/ContextData"
 import ShowArticle from "./components/ShowArticle/ShowArticle"
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop"
 import Footer from "./components/Footer"
-import { useContext } from "react"
+
+// Darkmode Context
+
 import { ContextTheme } from "./components/Context/ContextTheme"
+
+// Styles
+
+import "./App.css"
 
 function App() {
   const [darkMode, setDarkMode] = useContext(ContextTheme)
@@ -32,25 +39,26 @@ function App() {
       >
         {darkMode ? "Light Mode" : "Dark Mode"}
       </button>
-      <ArticleData>
-        <ScrollToTop>
-          <Routes>
-            <Route path="/" element={<Navigate to="/home" />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/bollywood" element={<Bollywood />} />
-            <Route path="/technology" element={<Technology />} />
-            <Route path="/Hollywood" element={<Hollywood />} />
-            <Route path="/fitness" element={<Fitness />} />
-            <Route path="/food" element={<Food />} />
-            <Route path="/show" element={<ShowArticle />} />
-            <Route path="/article/:id" element={<ShowArticle />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </ScrollToTop>
-      </ArticleData>
+      <ScrollToTop>
+        {
+          // to automatically scroll to the top of the page on each route change.
+        }
+        <Routes>
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/bollywood" element={<Bollywood />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/Hollywood" element={<Hollywood />} />
+          <Route path="/fitness" element={<Fitness />} />
+          <Route path="/food" element={<Food />} />
+          <Route path="/show" element={<ShowArticle />} />
+          <Route path="/article/:id" element={<ShowArticle />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ScrollToTop>
       <Footer />
     </div>
   )
 }
 
-export default React.memo(App)
+export default App

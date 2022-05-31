@@ -13,7 +13,7 @@ export default function TemplateComp(props) {
   const [showLoad, setShowLoad] = useState(false)
   const [darkMode] = useContext(ContextTheme)
   const [article, setArticle] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const category = Heading.toLowerCase()
 
@@ -25,15 +25,13 @@ export default function TemplateComp(props) {
       .then((req) => {
         const data = req.data.data
         setArticle(data)
-        setLoading(true)
-
-        // console.log("from node", data)
+        setLoading(false)
       })
   }, [category])
 
   return (
     <div className="mainContainer">
-      {loading ? (
+      {!loading ? (
         <>
           <div className="ArticlesContainer">
             <div>

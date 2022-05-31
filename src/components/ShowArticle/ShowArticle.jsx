@@ -25,22 +25,20 @@ export default function ShowArticle() {
   const { id } = useParams()
   const [darkMode] = useContext(ContextTheme)
   const [article, setArticle] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     axios
       .get(`https://guarded-caverns-05482.herokuapp.com/api/v1/article/${id}`)
       .then((res) => {
         setArticle(res.data)
-        setLoading(true)
-
-        // console.log("from node", item)
+        setLoading(false)
       })
   }, [id])
 
   return (
     <div>
-      {loading ? (
+      {!loading ? (
         <div className="containerArticle">
           {article.map((item) => {
             return item.id === +id ? (

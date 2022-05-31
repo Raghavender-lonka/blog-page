@@ -10,21 +10,20 @@ import Spinner from "../TemplateComp/Spinner"
 const Home = () => {
   const [article, setArticle] = useState([])
   const [darkMode] = useContext(ContextTheme)
-  const [showLoad, setShowLoad] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [showLoad, setShowLoad] = useState(false) // to show extra articles
+  const [loading, setLoading] = useState(true) // to show loading spinner while fetching the data
 
   const url = "https://guarded-caverns-05482.herokuapp.com/api/v1/home"
   useEffect(() => {
     axios.get(url).then((res) => {
       setArticle(res.data)
-      setLoading(true)
-      // console.log("from node", data)
+      setLoading(false)
     })
   }, [url])
 
   return (
     <div className="mainContainer">
-      {loading ? (
+      {!loading ? (
         <>
           <div className="container">
             {article

@@ -40,6 +40,13 @@ input {
   display: none;
 }
 
+.notFound {
+  height: 68vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logoText {
   display: flex;
   justify-content: center;
