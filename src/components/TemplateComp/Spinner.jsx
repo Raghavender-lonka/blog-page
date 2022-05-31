@@ -11,7 +11,7 @@ export default function Spinner() {
         marginBottom: "60vh",
       }}
     >
-      <div class="loader hour-glass"></div>
+      <div className="loader hour-glass"></div>
     </div>
   )
 }

@@ -441,6 +441,10 @@ input {
   font-size: inherit;
 }
 
+.topicHeader h1 {
+  margin-bottom: 10px;
+}
+
 /* footer {
   background-color: whitesmoke;
 } */
